@@ -46,3 +46,11 @@ Added tests for **classification**, **sentiment**, **language detection**, **art
 Interesting for the future: **Concept Extraction**, **Entity Extraction**,**Taxonomies**, **Entity Level Sentiment Analysis**, **Aspect-Based Sentiment Analysis**,
 
 Not used by now: **Image Tagging**, **Hashtag Suggestion** and **Combined Calls**
+
+# Let's install our server
+
+## Express :D
+
+```js
+yarn add express body-parser cors
+```
