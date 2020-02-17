@@ -47,10 +47,36 @@ Interesting for the future: **Concept Extraction**, **Entity Extraction**,**Taxo
 
 Not used by now: **Image Tagging**, **Hashtag Suggestion** and **Combined Calls**
 
-# Let's install our server
+# UI - Desgin
 
-## Express :D
+I make a break on the server work and I want to create the HTML & CSS for the UI at a static level, I will try to make SASS work to build an static HTML using webpack and later will comeback to this when the server is ready to join the pieces together.
 
-```js
-yarn add express body-parser cors
+![Wireframe](./doc/ui-wireframe.png)
+
+## SASS
+
+As I want to use SASS we need to have weback involved:
+
+```bash
+yarn add -D style-loader node-sass css-loader sass-loader
 ```
+
+- I need to install also the HtmlWebPackPlugin to also serve the HTML files
+
+```bash
+yarn add -D html-webpack-plugin
+```
+
+Now running:
+
+```bash
+# on root
+yarn run build-dev
+node src/server/index.html
+```
+
+We should see something like this:
+![Wireframe](./doc/adding-sass-1.png)
+
+`branch: ui-design`
+`commit: 5a927fb9450bbecaaa542fdcc2cc9686037550de`
