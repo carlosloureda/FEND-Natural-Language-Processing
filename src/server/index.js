@@ -1,5 +1,6 @@
 // Require Express to run server and routes
-const app = require("express")();
+const express = require("express");
+const app = express();
 const routes = require("./routes");
 
 /* Middleware*/
@@ -11,7 +12,8 @@ app.use(bodyParser.json());
 const cors = require("cors");
 app.use(cors());
 
-app.use("/", routes);
+app.use(routes);
+
 // Setup Server
 const PORT = 3000;
 app.listen(PORT, () => {

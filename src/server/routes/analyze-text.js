@@ -7,11 +7,11 @@ const analyzeText = (req, res) => {
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
-  const { text } = req.parms;
+  const { text } = req.query;
   //   TODO: Do the endpoint calls and fetch response ..
 
   console.log("[/analyze-text] endpoint called with `text`: ", text);
-  console.log("req.parms: ", req.parms);
+  console.log("req.query: ", req.query);
   textapi.sentiment(text, (error, response) => {
     try {
       if (error === null) {
