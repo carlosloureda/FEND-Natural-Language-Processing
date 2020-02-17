@@ -12,7 +12,7 @@
 ## Installation
 
 This project is using Aylien NPL API so you need to register for some API Credentials over [here](https://developer.aylien.com/signup) and once you fetch the `API_ID` and the
-`API_KEY` you need to create an **.env** file in the root of the `server` project folder (./src/server) and add this (with your own API keys of course):
+`API_KEY` you need to create an **.env** file in the root folder of your project and add this (with your own API keys of course):
 
 ```
 API_ID = <YOUR_AYLIEN_API_ID>
