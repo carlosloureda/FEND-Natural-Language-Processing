@@ -1,4 +1,4 @@
-# Personal Blog Site
+# Natural Language Processing
 
 ## Table of Contents
 
@@ -26,16 +26,6 @@ Node and express will be the webserver and routing, and webpack will be our buil
 ### More About Natural Language Processing
 
 NLP is considered its own branch of computer science, focused on computers’ ability to process and even interact with natural human speech. Machine learning and deep learning are used on massive amounts of data to obtain the rules and understanding of nuance in human speech. Everyone who has used Alexa or Google Assistant or other voice command systems knows that they are always improving - but they aren’t perfect. Verbal interactions can be incredibly hard to decipher. Sarcasm, for instance, requires understanding not just words and grammar but tone as well, and regional accents and ways of saying things have to be taken into account, not to mention coverage for all the major languages.
-
-## Requirements
-
-This project requires you to utilize your HTML and CSS skills to build out a personal blog website, including custom images, layout, and styling. Along with webpage design considerations, you'll work to appropriately structure your files, as well as use proper CSS and HTML formatting & style.
-
-To complete the project, you are able to decide on the HTML and CSS files to include as part of your work, given that the end result is within the confines of the project rubric provided below. This should include, at minimum, HTML files related to:
-
-- the blog website
-- an example blog post
-- as well as any related CSS files for styling.
 
 ## Project Instructions
 
