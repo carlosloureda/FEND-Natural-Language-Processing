@@ -1,28 +1,17 @@
-const textapi = require("./api/textapi");
-
-// const { check, validationResult } = require("express-validator");
-
 // Require Express to run server and routes
-const express = require("express");
-
-// Start up an instance of app
-const app = express();
+const app = require("express")();
+const routes = require("./routes");
 
 /* Middleware*/
 const bodyParser = require("body-parser");
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 // Cors for cross origin allowance
 const cors = require("cors");
 app.use(cors());
 
-app.get("/", (req, res) => {
-  console.log("[/] endpoint called");
-  res.send("Hello from the server!");
-});
-
+app.use("/", routes);
 // Setup Server
 const PORT = 3000;
 app.listen(PORT, () => {
