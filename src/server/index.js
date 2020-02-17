@@ -1,14 +1,7 @@
 const textapi = require("./api/textapi");
 
-textapi.sentiment(
-  {
-    text: "John is a very good football player!"
-  },
-  function(error, response) {
-    if (error === null) {
-      console.log(response);
-    } else {
-      console.log(error);
-    }
-  }
-);
+const url =
+  "http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate";
+textapi.extract(url, (_, response) => {
+  console.log(response);
+});

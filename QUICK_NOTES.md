@@ -36,3 +36,13 @@ This might not be needed later but as I began with server (from clean project)
 I wanted to test if I could use ES6 imports/exports.
 
 I will use require from now on, just wanted to test webpack without copy&pasting
+
+## API Endpoints
+
+Here we have the [documentation](https://docs.aylien.com/textapi/endpoints/#http-request)
+
+Added tests for **classification**, **sentiment**, **language detection**, **article extraction**, **summarization**
+
+Interesting for the future: **Concept Extraction**, **Entity Extraction**,**Taxonomies**, **Entity Level Sentiment Analysis**, **Aspect-Based Sentiment Analysis**,
+
+Not used by now: **Image Tagging**, **Hashtag Suggestion** and **Combined Calls**
