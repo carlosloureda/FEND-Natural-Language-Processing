@@ -5,14 +5,6 @@
  */
 const dotenv = require("dotenv");
 dotenv.config();
-/**
- * Aylien SDK configuration
- */
-
-const check_aylien_credentials = () => {
-  console.log(`Your API key is ${process.env.API_KEY}`);
-};
-check_aylien_credentials();
 
 const aylien = require("aylien_textapi");
 
