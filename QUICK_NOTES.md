@@ -80,3 +80,43 @@ We should see something like this:
 
 `branch: ui-design`
 `commit: 5a927fb9450bbecaaa542fdcc2cc9686037550de`
+
+## Let's add convinience features
+
+```
+yarn add -D webpack-dev-server
+```
+
+So now the run script instead of this:
+
+```json
+    "build-dev": "webpack --config webpack.dev.js"
+```
+
+Will be:
+
+```json
+    "build-dev": "webpack --config webpack.dev.js"
+```
+
+For not removing each time the `dist` folder like this:
+
+```json
+rm -rf dist && webpack-dev-server  --config webpack.dev.js --open
+```
+
+We install `webpack-dev-server`
+
+```
+yarn add -D clean-webpack-plugin
+```
+
+```
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+```
+
+We can run it without config:
+
+```
+    new CleanWebpackPlugin()
+```
