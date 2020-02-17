@@ -3,10 +3,9 @@
  * - Use dotenv for credentials use
  * - Use the API
  */
+const aylien = require("aylien_textapi");
 const dotenv = require("dotenv");
 dotenv.config();
-
-const aylien = require("aylien_textapi");
 
 const textapi = new aylien({
   application_id: process.env.API_ID,
