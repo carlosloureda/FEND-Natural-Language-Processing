@@ -1,0 +1,17 @@
+{
+  "name": "fend-natural-procesing-language-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "keywords": [],
+  "author": "Carlos Loureda <carloslouredaparrado@gmail.com>",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "aylien_textapi": "^0.7.0",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {}
+}

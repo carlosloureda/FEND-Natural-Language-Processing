@@ -1,4 +1,4 @@
-# Personal Blog Site
+# Natural Language Processing
 
 ## Table of Contents
 
@@ -11,7 +11,13 @@
 
 ## Installation
 
-TODO:
+This project is using Aylien NPL API so you need to register for some API Credentials over [here](https://developer.aylien.com/signup) and once you fetch the `API_ID` and the
+`API_KEY` you need to create an **.env** file in the root folder of your project and add this (with your own API keys of course):
+
+```
+API_ID = <YOUR_AYLIEN_API_ID>
+API_KEY = YOUR_AYLIEN_API_KEY>
+```
 
 ## Project Summary
 
@@ -26,16 +32,6 @@ Node and express will be the webserver and routing, and webpack will be our buil
 ### More About Natural Language Processing
 
 NLP is considered its own branch of computer science, focused on computers’ ability to process and even interact with natural human speech. Machine learning and deep learning are used on massive amounts of data to obtain the rules and understanding of nuance in human speech. Everyone who has used Alexa or Google Assistant or other voice command systems knows that they are always improving - but they aren’t perfect. Verbal interactions can be incredibly hard to decipher. Sarcasm, for instance, requires understanding not just words and grammar but tone as well, and regional accents and ways of saying things have to be taken into account, not to mention coverage for all the major languages.
-
-## Requirements
-
-This project requires you to utilize your HTML and CSS skills to build out a personal blog website, including custom images, layout, and styling. Along with webpage design considerations, you'll work to appropriately structure your files, as well as use proper CSS and HTML formatting & style.
-
-To complete the project, you are able to decide on the HTML and CSS files to include as part of your work, given that the end result is within the confines of the project rubric provided below. This should include, at minimum, HTML files related to:
-
-- the blog website
-- an example blog post
-- as well as any related CSS files for styling.
 
 ## Project Instructions
 
@@ -74,14 +70,14 @@ The Aylien API is perhaps different than what you've used before. It has you ins
 First, you will [need](https://developer.aylien.com/signup) to go here. Signing up will get you an API key. Don't worry, at the time of this course, the API is free to use up to 1000 requests per day or 333 intensive requests. It is free to check how many requests you have remaining for the day.
 
 **Step 2: Install the SDK**
-Next you'll need to get the SDK. SDK stands for Software Development Kit, and SDKs are usually a program that brings together various tools to help you work with a specific technology. SDKs will be available for all the major languages and platforms, for instance the Aylien SDK brings together a bunch of tools and functions that will make it possible to interface with their API from our server and is available for Node, Python, PHP, Go, Ruby and many others. We are going to use the Node one, the page is available here. You get 1000 free requests per day.
+Next you'll need to get the [SDK](https://docs.aylien.com/textapi/#getting-started). SDK stands for Software Development Kit, and SDKs are usually a program that brings together various tools to help you work with a specific technology. SDKs will be available for all the major languages and platforms, for instance the Aylien SDK brings together a bunch of tools and functions that will make it possible to interface with their API from our server and is available for Node, Python, PHP, Go, Ruby and many others. We are going to use the Node one, the page is available here. You get 1000 free requests per day.
 
 **Step 3: Require the SDK package**
 Install the SDK in your project and then we'll be ready to set up your server/index.js file.
 
 Your server index.js file must have these things:
 
-- [] Require the Aylien npm package
+- [ ] Require the Aylien npm package
 
 ```js
 var aylien = require("aylien_textapi");

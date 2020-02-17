@@ -1,0 +1,36 @@
+Arguments: 
+  /home/carlos/.nvm/versions/node/v12.15.0/bin/node /home/carlos/Dev/.yarn/releases/yarn-1.21.1.js add alyen_textapi
+
+PATH: 
+  /home/carlos/.nvm/versions/node/v12.15.0/bin:/home/carlos/.npm-global/bin:/home/carlos/.local/bin:/home/carlos/.npm-global/bin:/home/carlos/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/carlos/.dotnet/tools:/home/carlos/.dotnet/tools
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  12.15.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/alyen_textapi: Not found
+      at Request.params.callback [as _callback] (/home/carlos/Dev/.yarn/releases/yarn-1.21.1.js:78477:18)
+      at Request.self.callback (/home/carlos/Dev/.yarn/releases/yarn-1.21.1.js:135083:22)
+      at Request.emit (events.js:223:5)
+      at Request.<anonymous> (/home/carlos/Dev/.yarn/releases/yarn-1.21.1.js:136055:10)
+      at Request.emit (events.js:223:5)
+      at IncomingMessage.<anonymous> (/home/carlos/Dev/.yarn/releases/yarn-1.21.1.js:135977:12)
+      at Object.onceWrapper (events.js:312:28)
+      at IncomingMessage.emit (events.js:228:7)
+      at endReadableNT (_stream_readable.js:1185:12)
+      at processTicksAndRejections (internal/process/task_queues.js:81:21)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
