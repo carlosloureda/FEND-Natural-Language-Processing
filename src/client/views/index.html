@@ -4,10 +4,109 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aylienzr</title>
-    <link rel="stylesheet" href="../styles/resets.css" />
-    <link rel="stylesheet" href="../styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- <link rel="stylesheet" href="../styles/resets.css" />
+    <link rel="stylesheet" href="../styles/index.css" /> -->
   </head>
   <body>
-    <h1>Welcome to Aylienzr!</h1>
+    <header class="header">
+      <h1 class="header__title">Aylienzr!</h1>
+      <p class="header__subtitle">A Natural Language Processor</p>
+    </header>
+    <main class="main">
+      <section class="aylien-form__container">
+        <form class="aylien-form">
+          <input type="text" />
+          <button>Analyze text</button>
+        </form>
+      </section>
+      <section class="aylien-results">
+        <section class="aylien-results__emotions">
+          <h2 class="aylien-results__title">
+            Author's emotions & perspective
+          </h2>
+          <div class="aylien-results__emotions__content">
+            <div class="aylien-results__emotions__content__row">
+              <p div class="aylien-results__emotions__content__row__title">
+                Tone
+              </p>
+              <p><i class="fa fa-smile fa-lg"></i> Positive</p>
+              <!-- <p>Negative <i class="fa fa-frown fa-lg"></i></p>
+              <p>Neutral <i class="fa fa-meh fa-lg"></i></p> -->
+              <!-- <p>Progress bar</p> -->
+              <progress max="100" value="20"></progress>
+            </div>
+            <div class="aylien-results__emotions__content__row">
+              <p div class="aylien-results__emotions__content__row__title">
+                Perspective
+              </p>
+              <p>objective</p>
+              <progress max="100" value="80"></progress>
+            </div>
+          </div>
+        </section>
+        <section class="aylien-results__categories">
+          <h2 class="aylien-results__title">Categories & Hastags</h2>
+          <div class="aylien-results__categories__content">
+            <p>
+              <span class="chip">Apple</span>
+              <span class="chip">Microsoft</span>
+              <span class="chip">Google</span>
+            </p>
+          </div>
+          <div class="aylien-results__categories__hashtags">
+            <p>
+              <span class="chip">#apple</span>
+              <span class="chip">#microsoft</span>
+              <span class="chip">#google</span>
+            </p>
+          </div>
+        </section>
+        <section class="aylien-results__summary">
+          <h2 class="aylien-results__title">Summary</h2>
+          <div class="aylien-results__summary__content">
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum
+            </p>
+            <div>
+              <h3>Author:</h3>
+            </div>
+            <div>
+              <h3>Articles:</h3>
+            </div>
+            <div>
+              <h3>Videos:</h3>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__info">
+        By
+        <a
+          href="https://github.com/carlosloureda/FEND-Natural-Language-Processing"
+          target="_blank"
+        >
+          Carlos Loureda</a
+        >
+        , Copyright
+        <script>
+          document.write(`©${new Date().getFullYear()}`);
+        </script>
+      </p>
+    </footer>
   </body>
 </html>

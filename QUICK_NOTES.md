@@ -76,7 +76,7 @@ node src/server/index.html
 ```
 
 We should see something like this:
-![Wireframe](./doc/adding-sass-1.png)
+![Adding Sass](./doc/adding-sass-1.png)
 
 `branch: ui-design`
 `commit: 5a927fb9450bbecaaa542fdcc2cc9686037550de`
@@ -96,7 +96,7 @@ So now the run script instead of this:
 Will be:
 
 ```json
-    "build-dev": "webpack --config webpack.dev.js"
+    "build-dev": "webpack-dev-server --config webpack.dev.js --open"
 ```
 
 For not removing each time the `dist` folder like this:
@@ -120,3 +120,12 @@ We can run it without config:
 ```
     new CleanWebpackPlugin()
 ```
+
+# UI
+
+Branch: `ui-design`
+
+For having `webpack-dev-server` hot-reload I need to indicate `target: 'web'` instead of node.
+As I want to use font-awesome to add some emojis I have to add it now as a development dependcy and import it on the index.js file: https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-free
+
+For adding progress bar: https://css-tricks.com/html5-progress-element/
