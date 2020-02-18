@@ -47,10 +47,85 @@ Interesting for the future: **Concept Extraction**, **Entity Extraction**,**Taxo
 
 Not used by now: **Image Tagging**, **Hashtag Suggestion** and **Combined Calls**
 
-# Let's install our server
+# UI - Desgin
 
-## Express :D
+I make a break on the server work and I want to create the HTML & CSS for the UI at a static level, I will try to make SASS work to build an static HTML using webpack and later will comeback to this when the server is ready to join the pieces together.
 
-```js
-yarn add express body-parser cors
+![Wireframe](./doc/ui-wireframe.png)
+
+## SASS
+
+As I want to use SASS we need to have weback involved:
+
+```bash
+yarn add -D style-loader node-sass css-loader sass-loader
 ```
+
+- I need to install also the HtmlWebPackPlugin to also serve the HTML files
+
+```bash
+yarn add -D html-webpack-plugin
+```
+
+Now running:
+
+```bash
+# on root
+yarn run build-dev
+node src/server/index.html
+```
+
+We should see something like this:
+![Adding Sass](./doc/adding-sass-1.png)
+
+`branch: ui-design`
+`commit: 5a927fb9450bbecaaa542fdcc2cc9686037550de`
+
+## Let's add convinience features
+
+```
+yarn add -D webpack-dev-server
+```
+
+So now the run script instead of this:
+
+```json
+    "build-dev": "webpack --config webpack.dev.js"
+```
+
+Will be:
+
+```json
+    "build-dev": "webpack-dev-server --config webpack.dev.js --open"
+```
+
+For not removing each time the `dist` folder like this:
+
+```json
+rm -rf dist && webpack-dev-server  --config webpack.dev.js --open
+```
+
+We install `webpack-dev-server`
+
+```
+yarn add -D clean-webpack-plugin
+```
+
+```
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+```
+
+We can run it without config:
+
+```
+    new CleanWebpackPlugin()
+```
+
+# UI
+
+Branch: `ui-design`
+
+For having `webpack-dev-server` hot-reload I need to indicate `target: 'web'` instead of node.
+As I want to use font-awesome to add some emojis I have to add it now as a development dependcy and import it on the index.js file: https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-free
+
+For adding progress bar: https://css-tricks.com/html5-progress-element/
