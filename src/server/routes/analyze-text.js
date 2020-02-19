@@ -24,8 +24,7 @@ const analyzeText = async (req, res) => {
     }
     res.status(200).send(response);
   } catch (e) {
-    console.log("error: ", e);
-    // TODO: send error
+    console.log("** error: ", e);
     res.status(404).send(`${e}`);
   }
 };

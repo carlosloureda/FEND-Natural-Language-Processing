@@ -1,3 +1,5 @@
+import { openErrorModal } from "./modalHandler";
+
 console.log("Form Handler added");
 // TODO: remove this
 // const text = "John is a very good football player!";
@@ -111,7 +113,6 @@ const populateSummaryUI = summary => {
   if (sentences) {
     sentences.forEach(sentence => {
       const el = document.createElement("p");
-      // el.classList = "chip";
       el.innerText = sentence;
       summaryWrapper.appendChild(el);
     });
@@ -170,9 +171,7 @@ const hideLoading = () => {
  */
 export const fromHandler = async e => {
   e.preventDefault();
-  //   TODO: check text and url
   //   TODO: Show loades
-  //   TODO: load dynamically the results
   showLoading();
   const text = document.getElementById("aylien-form__input").value;
   let info = await fetchInfo(text);
@@ -193,51 +192,31 @@ export const fromHandler = async e => {
     if (info.extract) {
       populateExtractUI(info.extract);
     }
+    resetForm();
   }
   hideLoading();
-  resetForm();
   console.log("Form Hanlder called: ", info);
 };
 
 const API_URL = "http://localhost:3000";
 
 const fetchInfo = async text => {
-  // TODO: set as POST Request
-
   const response = await fetch(`${API_URL}/analyze-text?text=${text}`);
   try {
     if (response.status == 200) {
       const result = await response.json();
       return result;
     } else {
-      // TODO: Update UI with error
-      console.log("Eroror");
+      openErrorModal(
+        `Failed to fetch ${API_URL}/analyze-text?text=${text}:  ${response.status}, ${response.statusText}`
+      );
     }
-    // TODO: reset Form
-    // resetForm();
   } catch (error) {
-    // TODO: Update UI with error
-    console.log("error", error);
-    // openErrorModal("Some unexpected error happened!");
+    console.log("error: ", error);
+    openErrorModal(
+      `Some unexpected error happened while fetching ${API_URL}/analyze-text?text=${text}`
+    );
   }
 
-  return null;
+  return false;
 };
-
-/**
- * Waits until the DOM has loaded all the content, inside of here I run the necessary event listeners
- */
-window.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
-  document
-    .getElementById("submit-button")
-    .addEventListener("click", fromHandler);
-
-  // Manage enable/disable of the submit button
-  document.getElementById("submit-button").disabled = true;
-  document.getElementById("aylien-form__input").addEventListener("input", e => {
-    document.getElementById("submit-button").disabled = e.target.value
-      ? false
-      : true;
-  });
-});
