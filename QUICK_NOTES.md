@@ -129,3 +129,8 @@ For having `webpack-dev-server` hot-reload I need to indicate `target: 'web'` in
 As I want to use font-awesome to add some emojis I have to add it now as a development dependcy and import it on the index.js file: https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-free
 
 For adding progress bar: https://css-tricks.com/html5-progress-element/
+
+# All together
+
+Here comes the heavy lifting. Now the frontend will query the backend for some responses.
+Let's go!
