@@ -1,6 +1,10 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const { join, resolve } = require("path");
 
 module.exports = env => {
   return {
@@ -9,6 +13,10 @@ module.exports = env => {
     mode: "production",
     devtool: "source-map",
     stats: "verbose",
+    optimization: {
+      minimize: true,
+      minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})]
+    },
     module: {
       rules: [
         {
@@ -18,13 +26,14 @@ module.exports = env => {
         },
         {
           test: /\.scss$/,
-          use: ["style-loader", "css-loader", "sass-loader"]
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
         }
       ]
     },
     plugins: [
       new HtmlWebPackPlugin({
-        template: "./src/client/views/index.html",
+        // template: "./src/client/views/index.html",
+        template: resolve(__dirname, "src/client/views", "index.html"),
         filename: "./index.html"
       }),
       new CleanWebpackPlugin({
@@ -36,7 +45,8 @@ module.exports = env => {
         cleanStaleWebpackAssets: true,
         protectWebpackAssets: false
       }),
-      new WorkboxPlugin.GenerateSW()
+      new WorkboxPlugin.GenerateSW(),
+      new MiniCssExtractPlugin({ filename: "[name].css" })
     ]
   };
 };

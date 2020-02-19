@@ -160,3 +160,27 @@ Add this code to the bottom of your html file, just above the closing body tag.
   }
 </script>
 ```
+
+I did some enviroment checking to do this only on production, now I need to work on production configuration.
+
+I will follow this [guide](https://webpack.js.org/guides/production/)
+
+- [TenserWebpackPlugin](https://webpack.js.org/plugins/terser-webpack-plugin/)
+
+```js
+yarn add -D terser-webpack-plugin
+```
+
+- [MiniCssExtractPlugin](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production)
+
+```js
+yarn add -D mini-css-extract-plugin
+```
+
+To minify the output, use a plugin like optimize-css-assets-webpack-plugin. Setting optimization.minimizer overrides the defaults provided by webpack, so make sure to also specify a JS minimizer:
+
+```js
+yarn add -D optimize-css-assets-webpack-plugin
+```
+
+I have several warnings on the webpack build, but I want to try to deploy the app to production first
