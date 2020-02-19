@@ -22,12 +22,10 @@ const analyzeText = async (req, res) => {
       response.summary = await endpointWrapper("summarize", text);
       response.extract = await endpointWrapper("extract", text);
     }
-    // console.log("response: ", response);
     res.status(200).send(response);
   } catch (e) {
     console.log("error: ", e);
     // TODO: send error
-    // res.status(422).send(`${error}`);
     res.status(404).send(`${e}`);
   }
 };
@@ -69,9 +67,6 @@ const analyzeText = async (req, res) => {
  */
 
 const endpointWrapper = (func, params) => {
-  console.log("func: ", func);
-  console.log("params: ", params);
-
   return new Promise((resolve, reject) => {
     // let params = { text, title: "aaaa" };
     textapi[func](params, (error, response) => {

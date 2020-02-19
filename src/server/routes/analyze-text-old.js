@@ -25,11 +25,6 @@ const analyzeText = async (req, res) => {
       // hashtags: await getHashtags(text),
       // extract: await getExtract(text)
     };
-    console.log("sentiment: ", response.sentiment);
-    console.log("categories: ", response.categories);
-    console.log("summary: ", response.summary);
-    console.log("hashtags: ", response.hashtags);
-    console.log("extract: ", response.extract);
     res.status(200).send(response);
   } catch (e) {
     console.log("error: ", e);
@@ -43,9 +38,6 @@ const analyzeText = async (req, res) => {
 };
 
 const endpointWrapper = (func, params) => {
-  console.log("func: ", func);
-  console.log("params: ", params);
-
   return new Promise((resolve, reject) => {
     // let params = { text, title: "aaaa" };
     textapi[func](params, (error, response) => {
@@ -114,10 +106,7 @@ const getSummary = text => {
 
 // text or url and language
 const getHashtags = text => {
-  // cosnt
-  // console.log("HEHEH");
   return new Promise((resolve, reject) => {
-    // let params = { text, title: "aaaa" };
     textapi.hashtags(text, (error, response) => {
       try {
         if (response && error === null) {

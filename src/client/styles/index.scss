@@ -113,15 +113,23 @@ body {
   text-decoration: none;
   text-shadow: 0px 0px 20px #9b14b3;
 }
+.aylien-form__button:disabled {
+  background-color: grey;
+  background: grey;
+  cursor: not-allowed;
+}
 
-.aylien-form__button:hover {
+.aylien-form__button:not(:disabled):hover {
   background: linear-gradient(to bottom, #a511c0 5%, rgb(172, 60, 206) 100%);
   background-color: #a511c0;
 }
 
-.aylien-form__button:active {
+.aylien-form__button:not(:disabled):active {
   position: relative;
   top: 1px;
+}
+.aylien-form__button.loading {
+  cursor: progress;
 }
 
 // Results

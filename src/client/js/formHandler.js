@@ -1,9 +1,14 @@
 console.log("Form Handler added");
 // TODO: remove this
-const text = "John is a very good football player!";
-const url =
-  "http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate";
+// const text = "John is a very good football player!";
+// const url =
+//   "http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate";
 
+// TODO: Show the input text/url
+const resetForm = () => {
+  document.getElementById("aylien-form__input").value = "";
+  document.getElementById("submit-button").disabled = true;
+};
 /**
  * Populates UI with the data for sentiment, this is Author's emotions &
  * perspective
@@ -39,6 +44,7 @@ const populateSentimentUI = sentimentData => {
       break;
   }
 
+  document.getElementById("polarity").innerText = ""; //reset previous
   document.getElementById("polarity").appendChild(polarityIcon);
   const polaritySpan = document.createElement("span");
   polaritySpan.innerText = ` ${polarity}`;
@@ -58,6 +64,7 @@ const populateSentimentUI = sentimentData => {
  */
 const populateHashtagsUI = hashtags => {
   const hashtagsWrapper = document.getElementById("hastags");
+  hashtagsWrapper.innerText = "";
   if (!hashtags.length) {
     // TODO: add some styling to this
     hashtagsWrapper.innerText = "No hashtags found for this text ...";
@@ -74,10 +81,11 @@ const populateHashtagsUI = hashtags => {
 
 /**
  * Populates UI with the data for categories
- * @param {array} categories - array with all the categories
+ * @param {array} categories - array with all the categories objects
  */
 const populateCategoriesUI = categories => {
   const categoriesWrapper = document.getElementById("categories");
+  categoriesWrapper.innerText = "";
   if (!categories.length) {
     // TODO: add some styling to this
     categoriesWrapper.innerText = "No categories found for this text ...";
@@ -87,7 +95,7 @@ const populateCategoriesUI = categories => {
   categories.forEach(hashtag => {
     const el = document.createElement("span");
     el.classList = "chip";
-    el.innerText = hashtag;
+    el.innerText = hashtag.label;
     categoriesWrapper.appendChild(el);
   });
 };
@@ -141,6 +149,21 @@ const populateExtractUI = extract => {
   });
 };
 
+const showLoading = () => {
+  let submitBtn = document.getElementById("submit-button");
+  submitBtn.classList.toggle("loading");
+
+  submitBtn.innerText = "Analyzing  ";
+  const loadingIcon = document.createElement("i");
+  loadingIcon.classList = "fa fa-spinner fa-spin fa-lg";
+  submitBtn.appendChild(loadingIcon);
+};
+
+const hideLoading = () => {
+  let submitBtn = document.getElementById("submit-button");
+  submitBtn.classList.toggle("loading");
+  submitBtn.innerText = "Analyze!";
+};
 /**
  * Handles all the events related to the form submission
  * @param {event} e - The event fired on click on the form submit
@@ -150,6 +173,8 @@ export const fromHandler = async e => {
   //   TODO: check text and url
   //   TODO: Show loades
   //   TODO: load dynamically the results
+  showLoading();
+  const text = document.getElementById("aylien-form__input").value;
   let info = await fetchInfo(text);
 
   if (info) {
@@ -169,14 +194,17 @@ export const fromHandler = async e => {
       populateExtractUI(info.extract);
     }
   }
+  hideLoading();
+  resetForm();
   console.log("Form Hanlder called: ", info);
 };
 
 const API_URL = "http://localhost:3000";
+
 const fetchInfo = async text => {
   // TODO: set as POST Request
 
-  const response = await fetch(`${API_URL}/analyze-text?text=${url}`);
+  const response = await fetch(`${API_URL}/analyze-text?text=${text}`);
   try {
     if (response.status == 200) {
       const result = await response.json();
@@ -192,6 +220,7 @@ const fetchInfo = async text => {
     console.log("error", error);
     // openErrorModal("Some unexpected error happened!");
   }
+
   return null;
 };
 
@@ -203,4 +232,12 @@ window.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("submit-button")
     .addEventListener("click", fromHandler);
+
+  // Manage enable/disable of the submit button
+  document.getElementById("submit-button").disabled = true;
+  document.getElementById("aylien-form__input").addEventListener("input", e => {
+    document.getElementById("submit-button").disabled = e.target.value
+      ? false
+      : true;
+  });
 });
