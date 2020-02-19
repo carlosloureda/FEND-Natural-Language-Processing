@@ -2,7 +2,6 @@ const textapi = require("../api/textapi");
 const { validationResult } = require("express-validator");
 const { isURL } = require("../utils/utils");
 
-// http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate
 const analyzeText = async (req, res) => {
   // Validate data
   const errors = validationResult(req);
@@ -22,6 +21,7 @@ const analyzeText = async (req, res) => {
       response.summary = await endpointWrapper("summarize", text);
       response.extract = await endpointWrapper("extract", text);
     }
+    console.log("response: ", response);
     res.status(200).send(response);
   } catch (e) {
     console.log("** error: ", e);

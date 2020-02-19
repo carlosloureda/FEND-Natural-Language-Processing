@@ -194,8 +194,9 @@ export const fromHandler = async e => {
 
 const API_URL = "http://localhost:3000";
 
-const fetchInfo = async text => {
+export const fetchInfo = async text => {
   const response = await fetch(`${API_URL}/analyze-text?text=${text}`);
+  // console.log("The response is: ", response);
   try {
     if (response.status == 200) {
       const result = await response.json();
