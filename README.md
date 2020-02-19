@@ -19,6 +19,56 @@ API_ID = <YOUR_AYLIEN_API_ID>
 API_KEY = YOUR_AYLIEN_API_KEY>
 ```
 
+This app has a website that makes queries to a backend served on the same code.
+To run both client and website on local run:
+
+```
+npm run start
+```
+
+If you want to use `nodemon` and have all the changes done to the server reload, run:
+
+```
+npm run start-dev
+```
+
+If you want to run client from one place and server from the other, please run:
+
+- In one terminal window launch the client:
+
+```
+npm run build-dev
+```
+
+- In another window please launch the server
+
+```
+node src/server/index.js
+```
+
+or using nodemon
+
+```
+nodemon src/server/index.js
+```
+
+If you want to see how a production build is managed try building the client with:
+
+```
+npm run build-prod
+node src/server/index.js
+
+# or launch both together with:
+npm run start-prod
+```
+
+You need to open the index.html file in your browser (to test service-workers you need to seve it over a server)
+
+### Requirements
+
+- node v12.15.0
+- nodemon v2.0.2: For development in local.
+
 ## Project Summary
 
 The goal of this project is to give you a taste of the environment and tools you will most likely come across in a front end role. Your focus should be to understand the role every tool and technology is playing in the overall architecture, but you shouldn’t feel the need to memorize the particular commands, config setups, or structure that we create here. Every company - and even every project - will have its own custom setup, but if you understand the moving pieces you will be able to get the gist of even far more complicated projects than this one.
