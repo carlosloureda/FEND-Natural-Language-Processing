@@ -1,20 +1,6 @@
 import { fetchInfo } from "./formHandler";
-// import "babel-polyfill";
+
 describe("#API call `fetchInfo`", () => {
-  // beforeAll(() => {
-  //   document.body.innerHTML = `
-  //           <div id="errorModal" class="modal">
-  //           <div class="modal-content">
-  //             <div class="modal-header">
-  //               <span class="modal-close">&times;</span>
-  //               <h2>An error happened</h2>
-  //             </div>
-  //             <div class="modal-body">
-  //               <p id="modal-body-content"></p>
-  //             </div>
-  //           </div>
-  //         </div>`;
-  // });
   it("It works with text", async () => {
     const text = "John is a very good football player";
     global.fetch = jest.fn(() =>

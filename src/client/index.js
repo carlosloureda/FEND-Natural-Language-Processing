@@ -10,7 +10,10 @@ import "@fortawesome/fontawesome-free/js/brands";
 import { fromHandler } from "./js/formHandler";
 import { errorModalHandler, openErrorModal } from "./js/modalHandler";
 import { showDevConsoleInstructions } from "./js/instructions";
-
+import {
+  populateSummarySection,
+  populateEmotionsSection
+} from "./js/populateBasicUI";
 /**
  * Appends on footer the actual year :D
  */
@@ -47,7 +50,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if ("serviceWorker" in navigator) {
       // Use the window load event to keep the page load performant
-      navigator.serviceWorker.register("/service-worker.js");
+      // navigator.serviceWorker.register("/service-worker.js");
     }
   }
+
+  // populateSummarySection();
+  // populateEmotionsSection();
 });
