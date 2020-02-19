@@ -35,18 +35,26 @@
               <p div class="aylien-results__emotions__content__row__title">
                 Tone
               </p>
-              <p><i class="fa fa-smile fa-lg"></i> Positive</p>
+              <p id="polarity"></p>
               <!-- <p>Negative <i class="fa fa-frown fa-lg"></i></p>
               <p>Neutral <i class="fa fa-meh fa-lg"></i></p> -->
               <!-- <p>Progress bar</p> -->
-              <progress max="100" value="20"></progress>
+              <progress
+                max="100"
+                value="20"
+                id="polarity_confidence"
+              ></progress>
             </div>
             <div class="aylien-results__emotions__content__row">
               <p div class="aylien-results__emotions__content__row__title">
                 Perspective
               </p>
-              <p>objective</p>
-              <progress max="100" value="80"></progress>
+              <p id="subjectivity">objective</p>
+              <progress
+                max="100"
+                value="80"
+                id="subjectivity_confidence"
+              ></progress>
             </div>
           </div>
         </section>
