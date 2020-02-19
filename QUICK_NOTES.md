@@ -129,3 +129,58 @@ For having `webpack-dev-server` hot-reload I need to indicate `target: 'web'` in
 As I want to use font-awesome to add some emojis I have to add it now as a development dependcy and import it on the index.js file: https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-free
 
 For adding progress bar: https://css-tricks.com/html5-progress-element/
+
+# All together
+
+Here comes the heavy lifting. Now the frontend will query the backend for some responses.
+Let's go!
+
+> Added tone of stuff
+
+## Preparing production
+
+### Install service workers
+
+- Install the plugin: `yarn add -D workbox-webpack-plugin`
+- Require the plugin in prod: `const WorkboxPlugin = require('workbox-webpack-plugin');`
+- Add the plugin: `new WorkboxPlugin.GenerateSW()`
+
+We need to register a Service Worker with our app. To do this, we will add a script to our html file and call the register service worker function if the browser supports service workers.
+
+Add this code to the bottom of your html file, just above the closing body tag.
+
+```html
+<script>
+  // Check that service workers are supported
+  if ("serviceWorker" in navigator) {
+    // Use the window load event to keep the page load performant
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/service-worker.js");
+    });
+  }
+</script>
+```
+
+I did some enviroment checking to do this only on production, now I need to work on production configuration.
+
+I will follow this [guide](https://webpack.js.org/guides/production/)
+
+- [TenserWebpackPlugin](https://webpack.js.org/plugins/terser-webpack-plugin/)
+
+```js
+yarn add -D terser-webpack-plugin
+```
+
+- [MiniCssExtractPlugin](https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production)
+
+```js
+yarn add -D mini-css-extract-plugin
+```
+
+To minify the output, use a plugin like optimize-css-assets-webpack-plugin. Setting optimization.minimizer overrides the defaults provided by webpack, so make sure to also specify a JS minimizer:
+
+```js
+yarn add -D optimize-css-assets-webpack-plugin
+```
+
+I have several warnings on the webpack build, but I want to try to deploy the app to production first
