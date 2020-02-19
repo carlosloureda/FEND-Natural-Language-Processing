@@ -134,3 +134,29 @@ For adding progress bar: https://css-tricks.com/html5-progress-element/
 
 Here comes the heavy lifting. Now the frontend will query the backend for some responses.
 Let's go!
+
+> Added tone of stuff
+
+## Preparing production
+
+### Install service workers
+
+- Install the plugin: `yarn add -D workbox-webpack-plugin`
+- Require the plugin in prod: `const WorkboxPlugin = require('workbox-webpack-plugin');`
+- Add the plugin: `new WorkboxPlugin.GenerateSW()`
+
+We need to register a Service Worker with our app. To do this, we will add a script to our html file and call the register service worker function if the browser supports service workers.
+
+Add this code to the bottom of your html file, just above the closing body tag.
+
+```html
+<script>
+  // Check that service workers are supported
+  if ("serviceWorker" in navigator) {
+    // Use the window load event to keep the page load performant
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/service-worker.js");
+    });
+  }
+</script>
+```

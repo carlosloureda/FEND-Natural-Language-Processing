@@ -41,4 +41,13 @@ window.addEventListener("DOMContentLoaded", () => {
   errorModalHandler();
 
   showDevConsoleInstructions();
+  console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
+  if (process.env.NODE_ENV === "production") {
+    console.log("HEY!");
+
+    if ("serviceWorker" in navigator) {
+      // Use the window load event to keep the page load performant
+      navigator.serviceWorker.register("/service-worker.js");
+    }
+  }
 });
