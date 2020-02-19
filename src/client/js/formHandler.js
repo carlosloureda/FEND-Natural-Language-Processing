@@ -1,11 +1,5 @@
 import { openErrorModal } from "./modalHandler";
 
-console.log("Form Handler added");
-// TODO: remove this
-// const text = "John is a very good football player!";
-// const url =
-//   "http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate";
-
 // TODO: Show the input text/url
 const resetForm = () => {
   document.getElementById("aylien-form__input").value = "";

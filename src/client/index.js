@@ -9,12 +9,22 @@ import "@fortawesome/fontawesome-free/js/brands";
 
 import { fromHandler } from "./js/formHandler";
 import { errorModalHandler, openErrorModal } from "./js/modalHandler";
+import { showDevConsoleInstructions } from "./js/instructions";
+
+/**
+ * Appends on footer the actual year :D
+ */
+const showCopyRightYear = () => {
+  document.getElementById(
+    "copyright-year"
+  ).innerText = `©${new Date().getFullYear()}`;
+};
 
 /**
  * Waits until the DOM has loaded all the content, inside of here I run the necessary event listeners
  */
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
+  showCopyRightYear();
   document
     .getElementById("submit-button")
     .addEventListener("click", fromHandler);
@@ -29,4 +39,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Modal handler
   errorModalHandler();
+
+  showDevConsoleInstructions();
 });
