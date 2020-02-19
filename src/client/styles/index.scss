@@ -222,6 +222,14 @@ progress:before {
   padding-bottom: 25px;
 }
 
+.video-iframe {
+  width: 385px;
+  height: 289px;
+}
+.aylien-results__summary__videos {
+  width: 100%;
+}
+
 @media (max-width: 370px) {
   .aylien-results__categories__content,
   .aylien-results__categories__hashtags {
@@ -239,6 +247,10 @@ progress:before {
   .aylien-form__input {
     width: 70%;
     font-size: 12px;
+  }
+  .video-iframe {
+    width: 240px;
+    height: 180px;
   }
 }
 
