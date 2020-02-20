@@ -2,6 +2,13 @@ const textapi = require("../api/textapi");
 const { validationResult } = require("express-validator");
 const { isURL } = require("../utils/utils");
 
+/**
+ * Route handler for [/analyze-text], it fetches 3 Aylien endpoints in the case
+ * that the searched input is a text, and 5 endpoints in the case it is an URL. *
+ * @param {object} req - The request object from express routing
+ * @param {object} res - The response object from express routing
+ * @return {object} - An object with 3 or 5 nested objects with the data fetched. See endpointWrapper doc for more details
+ */
 const analyzeText = async (req, res) => {
   // Validate data
   const errors = validationResult(req);
@@ -30,6 +37,7 @@ const analyzeText = async (req, res) => {
 };
 
 /**
+ * A wrapper to call the 5 endppints so I don't repeact myself writting 5 different calls with almost the same code.
  * sentiment:
  *  params: {
       text: string;

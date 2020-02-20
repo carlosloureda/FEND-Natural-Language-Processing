@@ -1,11 +1,5 @@
 import { isURL } from "./utils";
 
-// export const populateSummarySection = () => {
-//   document.getElementById("summary-content").innerHTML = `
-//       <div id="summary"></div>
-//       `;
-// };
-
 /**
  * Populates UI with the data for sentiment, this is Author's emotions &
  * perspective
@@ -202,6 +196,9 @@ export const populateExtractUI = extract => {
   }
 };
 
+/**
+ * Helper function to populate the basic HTML for the emotions so I can handle * intial data, loaders and other things
+ */
 export const populateEmotionsSection = () => {
   const emotions = document.getElementById("emotions");
 
@@ -221,11 +218,5 @@ export const populateEmotionsSection = () => {
               id="subjectivity_confidence"
           ></progress>
       </div>
-      `;
-};
-
-export const nonResultsSummaryUI = () => {
-  document.getElementById("summary-content").innerHTML = `
-          <h2>No reults found</h2>
       `;
 };

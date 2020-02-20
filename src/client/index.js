@@ -15,6 +15,7 @@ import {
   populateSummarySection,
   populateEmotionsSection
 } from "./js/populateBasicUI";
+
 /**
  * Appends on footer the actual year :D
  */
@@ -48,13 +49,10 @@ window.addEventListener("DOMContentLoaded", () => {
   console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
   if (process.env.NODE_ENV === "production") {
     console.log("HEY!");
-
+    // TODO:
     if ("serviceWorker" in navigator) {
       // Use the window load event to keep the page load performant
       // navigator.serviceWorker.register("/service-worker.js");
     }
   }
-
-  // populateSummarySection();
-  // populateEmotionsSection();
 });

@@ -1,6 +1,11 @@
 $background-default-1: rgb(0, 0, 0);
 $background-default-2: rgba(0, 0, 0, 0.4);
 
+/**
+* Error modal window
+* Taken from here: https://www.w3schools.com/howto/howto_css_modals.asp
+*/
+
 $content-background: #fefefe;
 $header-background: #f44336;
 $close-color: #aaaaaa;
@@ -8,8 +13,6 @@ $border-color: #888;
 $black: black;
 $white: white;
 
-/* Error modal window */
-/* Taken from here: https://www.w3schools.com/howto/howto_css_modals.asp */
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */

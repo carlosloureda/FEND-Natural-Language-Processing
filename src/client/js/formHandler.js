@@ -7,13 +7,19 @@ import {
   populateExtractUI
 } from "./populateBasicUI";
 
+/**
+ * Resets the Form, clearing the input and disabling the button
+ */
 const resetForm = () => {
   document.getElementById("aylien-form__input").value = "";
   document.getElementById("submit-button").disabled = true;
 };
 
-const loaderHTML = `<div class="loader"></div>`;
-
+/**
+ * Manages the UI for Loading effects
+ * - Updates the button to a loading style
+ * - Shows 3 loaders for each of the categories sections
+ */
 const showLoading = () => {
   // Button
   let submitBtn = document.getElementById("submit-button");
@@ -24,10 +30,13 @@ const showLoading = () => {
   loadingIcon.classList = "fa fa-spinner fa-spin fa-lg";
   submitBtn.appendChild(loadingIcon);
 
+  const loaderHTML = `<div class="loader"></div>`;
+  const loader = document.createElement("div");
+
   // Emotions
   document.getElementById("emotions").innerHTML = loaderHTML;
+
   // Categories
-  const loader = document.createElement("div");
   loader.classList = "loader";
   document
     .getElementById("categories")
@@ -42,6 +51,11 @@ const showLoading = () => {
   document.getElementById("summary-content").innerHTML = loaderHTML;
 };
 
+/**
+ * Manages the UI for removing thge loading effects
+ * - Updates the button to a clickable
+ * - Removes the 3 loaders for each of the categories sections
+ */
 const hideLoading = () => {
   // Button
   let submitBtn = document.getElementById("submit-button");
@@ -51,18 +65,21 @@ const hideLoading = () => {
   // Loaders
   document.querySelectorAll(".loader").forEach(loader => loader.remove());
 };
+
 /**
  * Handles all the events related to the form submission
  * @param {event} e - The event fired on click on the form submit
  */
 export const fromHandler = async e => {
   e.preventDefault();
-  //   TODO: Show loades
+
   showLoading();
+
   const text = document.getElementById("aylien-form__input").value;
   let info = await fetchInfo(text);
 
   hideLoading();
+
   if (info) {
     if (info.sentiment) {
       populateSentimentUI(info.sentiment);
@@ -79,15 +96,19 @@ export const fromHandler = async e => {
     }
     resetForm();
   }
-  console.log("Form Hanlder called: ", info);
 };
 
 // TODO: set the PORT from env
 const API_URL = "http://localhost:3000";
 
+/**
+ * Queries the server endpoint with the text/url provided by the user and
+ * manages to update the UI (calling another function) *
+ *
+ * @param {string} text - The text or URL to analyze
+ */
 export const fetchInfo = async text => {
   const response = await fetch(`${API_URL}/analyze-text?text=${text}`);
-  // console.log("The response is: ", response);
   try {
     if (response.status == 200) {
       const result = await response.json();

@@ -1,3 +1,6 @@
+/**
+ * Shows in the Browser Developer console some useful messages, well, it is just a little of pimp :D
+ */
 export const showDevConsoleInstructions = () => {
   console.log(
     "%cWellcome to Aylienzr !",

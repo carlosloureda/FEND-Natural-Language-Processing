@@ -29,6 +29,7 @@ const closeModal = event => {
     modal.style.display = "none";
   }
 };
+
 /**
  * Hanlder for adding event listeners for closing modal window
  */
