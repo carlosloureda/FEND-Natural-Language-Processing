@@ -98,9 +98,6 @@ export const fromHandler = async e => {
   }
 };
 
-// TODO: set the PORT from env
-const API_URL = "http://localhost:3000";
-
 /**
  * Queries the server endpoint with the text/url provided by the user and
  * manages to update the UI (calling another function) *
@@ -108,6 +105,7 @@ const API_URL = "http://localhost:3000";
  * @param {string} text - The text or URL to analyze
  */
 export const fetchInfo = async text => {
+  const API_URL = `${process.env.SERVER_BASE_URL}:${process.env.SERVER_PORT}`;
   const response = await fetch(`${API_URL}/analyze-text?text=${text}`);
   try {
     if (response.status == 200) {

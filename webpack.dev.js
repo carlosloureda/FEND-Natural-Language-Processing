@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = env => {
   return {
@@ -34,7 +35,8 @@ module.exports = env => {
         // Automatically remove all unused webpack assets on rebuild
         cleanStaleWebpackAssets: true,
         protectWebpackAssets: false
-      })
+      }),
+      new Dotenv()
     ]
   };
 };

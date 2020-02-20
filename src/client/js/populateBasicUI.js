@@ -220,3 +220,12 @@ export const populateEmotionsSection = () => {
       </div>
       `;
 };
+
+/**
+ * Appends on footer the actual year :D
+ */
+export const showCopyRightYear = () => {
+  document.getElementById(
+    "copyright-year"
+  ).innerText = `©${new Date().getFullYear()}`;
+};

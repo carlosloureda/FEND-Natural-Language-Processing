@@ -13,16 +13,34 @@ import { errorModalHandler, openErrorModal } from "./js/modalHandler";
 import { showDevConsoleInstructions } from "./js/instructions";
 import {
   populateSummarySection,
-  populateEmotionsSection
+  populateEmotionsSection,
+  showCopyRightYear
 } from "./js/populateBasicUI";
 
 /**
- * Appends on footer the actual year :D
+ * Checks the existance of env variables for my server endpoints
  */
-const showCopyRightYear = () => {
-  document.getElementById(
-    "copyright-year"
-  ).innerText = `©${new Date().getFullYear()}`;
+const checkEnvironmentVariables = () => {
+  if (!process.env.SERVER_BASE_URL && !process.env.SERVER_PORT) {
+    openErrorModal(
+      `There isn't a .env file where I can fetch the server URL and its PORT.
+      Please see README.md
+      `
+    );
+  }
+};
+
+/**
+ * Registers the servide worker when we are on production environment (webpack config)
+ * TIP: If you run this once as production and want to come back to dev you need to unregister this service worker over the browser developer console.
+ */
+const registerServiceWorkers = () => {
+  if (process.env.NODE_ENV === "production") {
+    if ("serviceWorker" in navigator) {
+      // Use the window load event to keep the page load performant
+      navigator.serviceWorker.register("/service-worker.js");
+    }
+  }
 };
 
 /**
@@ -30,6 +48,8 @@ const showCopyRightYear = () => {
  */
 window.addEventListener("DOMContentLoaded", () => {
   showCopyRightYear();
+
+  // Submit button handler
   document
     .getElementById("submit-button")
     .addEventListener("click", fromHandler);
@@ -42,17 +62,8 @@ window.addEventListener("DOMContentLoaded", () => {
       : true;
   });
 
-  // Modal handler
   errorModalHandler();
-
   showDevConsoleInstructions();
-  console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
-  if (process.env.NODE_ENV === "production") {
-    console.log("HEY!");
-    // TODO:
-    if ("serviceWorker" in navigator) {
-      // Use the window load event to keep the page load performant
-      // navigator.serviceWorker.register("/service-worker.js");
-    }
-  }
+  registerServiceWorkers();
+  checkEnvironmentVariables();
 });

@@ -17,7 +17,7 @@ app.use(express.static("dist"));
 app.use(routes);
 
 // Setup Server
-const PORT = 3000;
+const PORT = process.env.SERVER_PORT ? process.env.SERVER_PORT : 3000;
 app.listen(PORT, () => {
   console.log(`Server for NLP project: ${PORT}`);
   console.log(

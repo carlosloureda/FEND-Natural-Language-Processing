@@ -4,7 +4,9 @@ const WorkboxPlugin = require("workbox-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const { join, resolve } = require("path");
+const Dotenv = require("dotenv-webpack");
+
+const { resolve } = require("path");
 
 module.exports = env => {
   return {
@@ -45,6 +47,7 @@ module.exports = env => {
         cleanStaleWebpackAssets: true,
         protectWebpackAssets: false
       }),
+      new Dotenv(),
       new WorkboxPlugin.GenerateSW(),
       new MiniCssExtractPlugin({ filename: "[name].css" })
     ]
