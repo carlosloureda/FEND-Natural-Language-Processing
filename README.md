@@ -20,6 +20,12 @@ SERVER_BASE_URL = "http://localhost"
 SERVER_PORT = 3000
 ```
 
+Before running the app you need to install all the dependencies:
+
+```
+npm install
+```
+
 This app has a website that makes queries to a backend served on the same code.
 To run both client and website on local run:
 
