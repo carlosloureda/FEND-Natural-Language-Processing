@@ -49,7 +49,7 @@ const analyzeText = async (req, res) => {
       url: string;
       mode ?: string;
     }
- * hastags:
+ * hashtags:
     params: {
       text: string;
       url: string;

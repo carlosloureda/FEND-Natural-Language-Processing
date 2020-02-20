@@ -8,83 +8,13 @@
     <link rel="stylesheet" href="../styles/index.css" /> -->
   </head>
   <body>
-    <!-- <div class="preloader">
-      <svg
-        width="200"
-        height="200"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="xMidYMid"
-        class="lds-ripple"
-        style="background:0 0"
-      >
-        <circle
-          cx="50"
-          cy="50"
-          r="4.719"
-          fill="none"
-          stroke="#1d3f72"
-          stroke-width="2"
-        >
-          <animate
-            attributeName="r"
-            calcMode="spline"
-            values="0;40"
-            keyTimes="0;1"
-            dur="3"
-            keySplines="0 0.2 0.8 1"
-            begin="-1.5s"
-            repeatCount="indefinite"
-          />
-          <animate
-            attributeName="opacity"
-            calcMode="spline"
-            values="1;0"
-            keyTimes="0;1"
-            dur="3"
-            keySplines="0.2 0 0.8 1"
-            begin="-1.5s"
-            repeatCount="indefinite"
-          />
-        </circle>
-        <circle
-          cx="50"
-          cy="50"
-          r="27.591"
-          fill="none"
-          stroke="#5699d2"
-          stroke-width="2"
-        >
-          <animate
-            attributeName="r"
-            calcMode="spline"
-            values="0;40"
-            keyTimes="0;1"
-            dur="3"
-            keySplines="0 0.2 0.8 1"
-            begin="0s"
-            repeatCount="indefinite"
-          />
-          <animate
-            attributeName="opacity"
-            calcMode="spline"
-            values="1;0"
-            keyTimes="0;1"
-            dur="3"
-            keySplines="0.2 0 0.8 1"
-            begin="0s"
-            repeatCount="indefinite"
-          />
-        </circle>
-      </svg>
-    </!-->
-
     <header class="header">
       <h1 class="header__title">Aylienzr!</h1>
       <p class="header__subtitle">A Natural Language Processor</p>
     </header>
     <main class="main">
       <section class="aylien-form__container">
+        <!-- Add heading? h2 -->
         <form class="aylien-form">
           <input
             type="text"
@@ -97,7 +27,7 @@
           </button>
         </form>
       </section>
-      <section class="aylien-results">
+      <div class="aylien-results">
         <section class="aylien-results__emotions">
           <h2 class="aylien-results__title">
             Author's emotions & perspective
@@ -105,31 +35,29 @@
           <div class="aylien-results__emotions__content" id="emotions">
             <h2>Here will appear the emotions results</h2>
             <!-- Dinamically populated -->
+            <!-- <div class="loader"></div> -->
           </div>
         </section>
         <section class="aylien-results__categories">
           <h2 class="aylien-results__title">Categories & Hastags</h2>
+          <!-- <div class="loader"></div> -->
           <div class="aylien-results__categories__content">
-            <p id="categories">
-              <!-- <span class="chip">Apple</span>
-              <span class="chip">Microsoft</span>
-              <span class="chip">Google</span> -->
-            </p>
+            <p id="categories"></p>
           </div>
           <div class="aylien-results__categories__hashtags">
-            <p id="hastags">
-              <!-- <span class="chip">#apple</span> -->
-            </p>
+            <p id="hashtags"></p>
           </div>
         </section>
+        <!-- Sumary Section -->
         <section class="aylien-results__summary">
           <h2 class="aylien-results__title">Summary</h2>
           <div class="aylien-results__summary__content" id="summary-content">
             <h2>Here will appear the summary</h2>
+            <!-- <div class="loader"></div> -->
             <!-- Dinamically populated -->
           </div>
         </section>
-      </section>
+      </div>
     </main>
     <footer class="footer">
       <p class="footer__info">

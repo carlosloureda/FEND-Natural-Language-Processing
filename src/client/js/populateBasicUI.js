@@ -61,7 +61,7 @@ export const populateSentimentUI = sentimentData => {
  * @param {array} hashtags - object with all the hashtags
  */
 export const populateHashtagsUI = hashtags => {
-  const hashtagsWrapper = document.getElementById("hastags");
+  const hashtagsWrapper = document.getElementById("hashtags");
   hashtagsWrapper.innerText = "";
   if (!hashtags.length) {
     // TODO: add some styling to this
@@ -105,7 +105,7 @@ export const populateCategoriesUI = categories => {
 export const populateSummaryUI = (summary, originalSearch) => {
   // populateSummarySection();
 
-  const summaryWrapper = document.getElementById("summary");
+  const summaryWrapper = document.getElementById("summary-content");
 
   // Create the summary section
   const summaryDiv = document.createElement("div");
@@ -120,6 +120,7 @@ export const populateSummaryUI = (summary, originalSearch) => {
         searchIsURL ? "URL" : "text"
       } searched was:  ${originalSearch}</p>
     `;
+  summaryWrapper.textContent = "";
   summaryWrapper.appendChild(summaryDiv);
 
   if (summary) {
@@ -207,16 +208,12 @@ export const populateEmotionsSection = () => {
   emotions.innerHTML = `
 
       <div class="aylien-results__emotions__content__row">
-          <p class="aylien-results__emotions__content__row__title">
-              Tone
-          </p>
+          <p class="aylien-results__emotions__content__row__title">Tone</p>
           <p id="polarity"></p>
           <progress max="100" value="" id="polarity_confidence"></progress>
       </div>
       <div class="aylien-results__emotions__content__row">
-          <p class="aylien-results__emotions__content__row__title">
-              Perspective
-          </p>
+          <p class="aylien-results__emotions__content__row__title">Perspective</p>
           <p id="subjectivity"></p>
           <progress
               max="100"

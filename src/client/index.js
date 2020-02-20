@@ -1,6 +1,7 @@
 import "./styles/resets.scss";
 import "./styles/index.scss";
 import "./styles/modal.scss";
+import "./styles/loaders.scss";
 
 import "@fortawesome/fontawesome-free/js/fontawesome";
 import "@fortawesome/fontawesome-free/js/solid";

@@ -12,7 +12,10 @@ const resetForm = () => {
   document.getElementById("submit-button").disabled = true;
 };
 
+const loaderHTML = `<div class="loader"></div>`;
+
 const showLoading = () => {
+  // Button
   let submitBtn = document.getElementById("submit-button");
   submitBtn.classList.toggle("loading");
 
@@ -20,12 +23,33 @@ const showLoading = () => {
   const loadingIcon = document.createElement("i");
   loadingIcon.classList = "fa fa-spinner fa-spin fa-lg";
   submitBtn.appendChild(loadingIcon);
+
+  // Emotions
+  document.getElementById("emotions").innerHTML = loaderHTML;
+  // Categories
+  const loader = document.createElement("div");
+  loader.classList = "loader";
+  document
+    .getElementById("categories")
+    .parentNode.parentNode.appendChild(loader);
+
+  if (document.getElementById("categories")) {
+    document.getElementById("categories").innerHTML = "";
+    document.getElementById("hashtags").innerHTML = "";
+  }
+
+  // Suummary
+  document.getElementById("summary-content").innerHTML = loaderHTML;
 };
 
 const hideLoading = () => {
+  // Button
   let submitBtn = document.getElementById("submit-button");
   submitBtn.classList.toggle("loading");
   submitBtn.innerText = "Analyze!";
+
+  // Loaders
+  document.querySelectorAll(".loader").forEach(loader => loader.remove());
 };
 /**
  * Handles all the events related to the form submission
@@ -38,6 +62,7 @@ export const fromHandler = async e => {
   const text = document.getElementById("aylien-form__input").value;
   let info = await fetchInfo(text);
 
+  hideLoading();
   if (info) {
     if (info.sentiment) {
       populateSentimentUI(info.sentiment);
@@ -54,7 +79,6 @@ export const fromHandler = async e => {
     }
     resetForm();
   }
-  hideLoading();
   console.log("Form Hanlder called: ", info);
 };
 
