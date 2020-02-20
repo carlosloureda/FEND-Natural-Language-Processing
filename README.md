@@ -11,12 +11,13 @@
 
 ## Installation
 
-This project is using Aylien NPL API so you need to register for some API Credentials over [here](https://developer.aylien.com/signup) and once you fetch the `API_ID` and the
-`API_KEY` you need to create an **.env** file in the root folder of your project and add this (with your own API keys of course):
+This project is using Aylien NPL API so you need to register for some API Credentials over [here](https://developer.aylien.com/signup) and once you fetch the `API_ID` and the `API_KEY` you need to create an **.env** file in the root folder of your project and add this (with your own API keys of course). You also need to specify the URL and PORT for the local server:
 
 ```
 API_ID = <YOUR_AYLIEN_API_ID>
 API_KEY = YOUR_AYLIEN_API_KEY>
+SERVER_BASE_URL = "http://localhost"
+SERVER_PORT = 3000
 ```
 
 This app has a website that makes queries to a backend served on the same code.
